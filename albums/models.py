@@ -5,3 +5,6 @@ class Album(models.Model):
 	title = models.CharField(max_length=255);
 	cover = models.ImageField(upload_to='albums');
 	artirts = models.ForeignKey(Artist); #Se especifica que artista es
+	
+	def __unicode__(self):
+		return self.title;
