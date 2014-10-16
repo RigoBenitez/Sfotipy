@@ -12,6 +12,4 @@ urlpatterns = patterns('',
     url(r'^tracks/(?P<title>[\w\-\s]+)', 'tracks.views.trackView', name='trackView'),
     url(r'^signup/', 'userProfiles.views.signup', name='signup'),
     url(r'^signin/', 'userProfiles.views.signin', name='signin'),
-
-
 )

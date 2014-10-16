@@ -15,6 +15,6 @@ def signin(request):
 	form = EmailAutheticationForm(request.POST or None);
 
 	if form.is_valid():
-		login(request, form.getUser());
+		login(request, form.get_user());
 
 	return render(request, 'signin.html', {'form': form} );

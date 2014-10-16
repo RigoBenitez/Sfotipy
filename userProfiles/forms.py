@@ -39,5 +39,5 @@ class EmailAutheticationForm(forms.Form):
 		return self.cleaned_data 
 
 		#devuelve el usuario
-	def getUser(self):
+	def get_user(self):
 		return self.user_cache;
