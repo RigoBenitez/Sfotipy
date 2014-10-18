@@ -26,10 +26,19 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
+
+GRAPPELLI_ADMIN_TITLE = 'Sfoti.py' 
+
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+    "django.core.context_processors.request",
+)
+
 
 # Application definition
 
 INSTALLED_APPS = (
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -93,4 +102,4 @@ STATIC_URL = '/static/'
 MEDIA_ROOT =  os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
 MEDIA_URL = '/media/'
 #backends
-#AUTHENTICATION_BACKENDS = ('userProfiles.backends.EmailBackend',);
+AUTHENTICATION_BACKENDS = ('userProfiles.backends.EmailBackend',);

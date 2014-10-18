@@ -4,6 +4,11 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
+    (r'^grappelli/', include('grappelli.urls')), # grappelli URLS
+    (r'^admin/',  include(admin.site.urls)), # admin site
+)
+
+urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'sfotipy.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
