@@ -17,6 +17,7 @@ class Track(models.Model):
 		</audio>
 		""" % self.trackFile.url
 	player.allow_tags = True;
+	player.admin_order_field = 'trackFile';
 
 	def __unicode__(self):
 		return self.title;
