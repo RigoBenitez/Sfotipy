@@ -28,5 +28,5 @@ def trackView(request, title):
 	}
 
 	#con loads haces lo contrario
-	json_data =json.dumps(data)
+	json_data = json.dumps(data);
 	return HttpResponse(json_data, content_type='application/json');

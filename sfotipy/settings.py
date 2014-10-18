@@ -28,11 +28,9 @@ ALLOWED_HOSTS = []
 
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
-GRAPPELLI_ADMIN_TITLE = 'Sfoti.py' 
+#GRAPPELLI_ADMIN_TITLE = 'Sfoti.py' 
 
-TEMPLATE_CONTEXT_PROCESSORS = TCP + (
-    "django.core.context_processors.request",
-)
+TEMPLATE_CONTEXT_PROCESSORS = TCP + ( "django.core.context_processors.request", )
 
 
 # Application definition

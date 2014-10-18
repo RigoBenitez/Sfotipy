@@ -3,10 +3,7 @@ from django.conf import settings
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = patterns('',
-    (r'^grappelli/', include('grappelli.urls')), # grappelli URLS
-    (r'^admin/',  include(admin.site.urls)), # admin site
-)
+
 
 urlpatterns = patterns('',
     # Examples:
@@ -19,6 +16,12 @@ urlpatterns = patterns('',
     url(r'^signin/', 'userProfiles.views.signin', name='signin'),
 )
 
+urlpatterns = patterns('',
+    (r'^grappelli/', include('grappelli.urls')), # grappelli URLS
+    (r'^admin/',  include(admin.site.urls)), # admin site
+)
+
 urlpatterns += patterns('', 
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT,} ),
 )
+
