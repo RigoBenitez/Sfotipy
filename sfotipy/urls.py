@@ -1,5 +1,5 @@
 from django.conf.urls import patterns, include, url
-
+from django.conf import settings
 from django.contrib import admin
 admin.autodiscover()
 
@@ -12,4 +12,8 @@ urlpatterns = patterns('',
     url(r'^tracks/(?P<title>[\w\-\s]+)', 'tracks.views.trackView', name='trackView'),
     url(r'^signup/', 'userProfiles.views.signup', name='signup'),
     url(r'^signin/', 'userProfiles.views.signin', name='signin'),
+)
+
+urlpatterns += patterns('', 
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_ROOT,} ),
 )
