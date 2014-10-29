@@ -2,28 +2,38 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Track</title>
+	<title>Track {{titulo}} </title>
 </head>
 <body>
 	<section>
+		<ul>
+			{% for track in tracks %}
+			<li>
+				<a href="{{ track.get_absolute_url}}"> {{ track.title }}</a>
+				{% if track.id == selected_track.id %} ------ {% endif %}
+			</li>
+			{% endfor %}
+		</ul>
 		<p>
-			Title: {{}}
+			{{titulo}}
 		</p>
 		<p>
-			Order: {{}}
+			Title: {{track.title}}
 		</p>
 		<p>
-			Track File: {{}}
+			Order: {{track.order}}
 		</p>
 		<p>
-			Album: {{}}
+			Track File: {{track.trackFile}}
 		</p>
 		<p>
-			Artist: {{}} <br/>
-			Artist last name: {{}}
+			Album: {{track.album.title}}
 		</p>
 		<p>
-			Cover: {{}}
+			Artist: {{track.artist.firstName}} <br/>
+		</p>
+		<p>
+			Description: {{ bio }}
 		</p>
 	</section>
 </body>

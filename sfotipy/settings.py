@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
 
 # Quick-start development settings - unsuitable for production
@@ -26,17 +27,16 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
-from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 
-#GRAPPELLI_ADMIN_TITLE = 'Sfoti.py' 
+#un archivo que por defecto debe de llamarse context_procesors
+TEMPLATE_CONTEXT_PROCESSORS = TCP + ( "django.core.context_processors.request", 'sfotipy.context_processors.basico', )
 
-TEMPLATE_CONTEXT_PROCESSORS = TCP + ( "django.core.context_processors.request", )
-
+GRAPPELLI_ADMIN_TITLE = 'Sfoti.py' 
 
 # Application definition
 
 INSTALLED_APPS = (
-    'grappelli',
+   'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,12 +44,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'south',
+    'mockups',
+    'django_extensions',
     'userProfiles',
     'artists',
     'albums',
     'tracks',
-    'mockups',
-    'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -59,6 +59,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'sfotipy.middleware.PaisMiddleware',
 )
 
 ROOT_URLCONF = 'sfotipy.urls'
@@ -81,7 +82,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'es'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
