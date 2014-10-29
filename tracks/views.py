@@ -4,6 +4,7 @@ from django.http import HttpResponse, Http404
 from albums.models import Album 
 from .models import Track
 
+@login_required
 def trackView(request, title):
 	track = get_object_or_404(Track, title = title);
 	bio = track.artist.biography;

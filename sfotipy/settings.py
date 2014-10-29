@@ -59,7 +59,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'sfotipy.middleware.PaisMiddleware',
+    # 'sfotipy.middleware.PaisMiddleware',
 )
 
 ROOT_URLCONF = 'sfotipy.urls'
@@ -76,6 +76,9 @@ DATABASES = {
         'NAME': 'sfotipy',
         'USER': 'root',
         'PASSWORD': 'Angel1991',
+        # 'default': {
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
