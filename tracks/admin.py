@@ -11,7 +11,7 @@ class TrackAdmin(admin.ModelAdmin):
 
 	def es_metallica(self, obj):
 		#obj recibe todos los objetos
-		return obj.id == 3;	
+		return obj.id == 1;	
 	#Pone un palomita cuando se encuentrea acdc con 
 	es_metallica.boolean = True;
 
