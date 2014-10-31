@@ -2,8 +2,10 @@ import json
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404
 from albums.models import Album 
+from django.contrib.auth.decorators import login_required
 from .models import Track
 
+@login_required
 
 def trackView(request, title):
 	track = get_object_or_404(Track, title = title);
@@ -17,7 +19,7 @@ def trackView(request, title):
 	except Track.DoesNotExist:
 		raise Http404
 	'''
-	'''
+	
 	data = {
 		'title': track.title,
 		'order': track.order,
@@ -27,7 +29,6 @@ def trackView(request, title):
 			'bio': bio,
 		}
 	}
-	'''
 
 	#con loads haces lo contrario
 	# json_data = json.dumps(data);
