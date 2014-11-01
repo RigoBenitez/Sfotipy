@@ -36,6 +36,13 @@ def trackView(request, title):
 	}
 
 	#con loads haces lo contrario
-	json_data = json.dumps(data);
+	# json_data = json.dumps(data);
 	# return HttpResponse(json_data, content_type='application/json');
 	return render(request, 'track.html', {'track': track, 'bio': bio,});
+
+from .models import Artist
+from artists.serializers import ArtistSerializer
+from rest_framework import viewsets
+
+class TrackViewSet(viewsets.ModelViewSet):
+	model = Track;

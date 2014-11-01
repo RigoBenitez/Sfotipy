@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     'south',
     'mockups',
     'django_extensions',
+    'rest_framework',
     'userProfiles',
     'artists',
     'albums',

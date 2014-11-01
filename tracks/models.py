@@ -20,6 +20,7 @@ class Track(models.Model):
 			Tu browser es basura
 		</audio>
 		""" % self.trackFile.url
+		
 	player.allow_tags = True;
 	player.admin_order_field = 'trackFile';
 
