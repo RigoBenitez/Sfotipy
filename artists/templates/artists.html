@@ -5,6 +5,14 @@
  	<title>Document</title>
  </head>
  <body>
+ 	{% load static from staticfiles %}
 	{{artist.firstName}}
+
+	{# version buena #}
+	{# <img src="{{STATIC_URL}}imagen.jpg" alt="" style="width: 500px;"> #}
+
+	{# version mjorada tiene load static #}
+	<img src="{% static "imagen.jpg" %}" alt="" style="width: 500px;">
+
  </body>
  </html> 
