@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import json
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404
@@ -5,6 +8,8 @@ from albums.models import Album
 from django.contrib.auth.decorators import login_required
 from .models import Track
 
+# If the user isn’t logged in, redirect to settings.LOGIN_URL, 
+# passing the current absolute path in the query string
 @login_required
 
 def trackView(request, title):
@@ -31,6 +36,6 @@ def trackView(request, title):
 	}
 
 	#con loads haces lo contrario
-	# json_data = json.dumps(data);
+	json_data = json.dumps(data);
 	# return HttpResponse(json_data, content_type='application/json');
 	return render(request, 'track.html', {'track': track, 'bio': bio,});
