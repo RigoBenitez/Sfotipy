@@ -21,9 +21,15 @@ from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 SECRET_KEY = 'rv6nc3wwo-q$_*^+xb&j#i76@34-^bdoe%pn=6pe_o-pqx2xp3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = True
+
+#Para filter de API rest
+#Filtrar para los elementos del modelo
+REST_FRAMEWORK ={
+    'DEFAULT_FILTER_BACKENDS': ('rest_framework.filters.DjangoFilterBackend',)    
+}
 
 #para que sirva DEBUG = False
 ALLOWED_HOSTS = ['localhost']
