@@ -20,14 +20,12 @@ from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'rv6nc3wwo-q$_*^+xb&j#i76@34-^bdoe%pn=6pe_o-pqx2xp3'
 
-
-
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 TEMPLATE_DEBUG = True
 
+#para que sirva DEBUG = False
 ALLOWED_HOSTS = ['localhost']
 
 
@@ -104,11 +102,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder')
+
+#
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.CachedStaticFilesStorage'
 
-
 MEDIA_ROOT =  os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['media'])
-STATIC_ROOT =  os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['contect'])
+#usar collectstatic en el mange.py para que no se tenga que hacer el f5
+
+STATIC_ROOT =  os.sep.join(os.path.abspath(__file__).split(os.sep)[:-2] + ['content'])
+
 MEDIA_URL = '/media/'
+
 #backends
 AUTHENTICATION_BACKENDS = ('userProfiles.backends.EmailBackend',);
