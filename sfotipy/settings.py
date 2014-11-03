@@ -61,7 +61,7 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    # para cache de middleware
+    # para cache de middleware es el primero que debe de ir
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -69,6 +69,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #siempre tiene que ser el ultimo
     'django.middleware.cache.FetchFromCacheMiddleware',
     # 'sfotipy.middleware.PaisMiddleware',
 )
@@ -151,5 +152,8 @@ AUTHENTICATION_BACKENDS = ('userProfiles.backends.EmailBackend',);
 #aun mas -- si no les importa que se pierda la sesion
 #no usa una base de datos para guardar el cache
 # SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+
+#a los usuarios no logeados
+CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
 #----------------------------caches------------------------------------
 

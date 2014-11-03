@@ -16,10 +16,10 @@ import time
 
 # If the user isn’t logged in, redirect to settings.LOGIN_URL, 
 # passing the current absolute path in the query string
-@login_required
+# @login_required
 
 #se guarda por 60 segundos
-# @cache_page(10)
+@cache_page(10)
 
 def trackView(request, title):
 	track = get_object_or_404(Track, title = title);
