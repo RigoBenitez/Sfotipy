@@ -19,7 +19,7 @@ import time
 @login_required
 
 #se guarda por 60 segundos
-@cache_page(60)
+# @cache_page(5)
 
 def trackView(request, title):
 	track = get_object_or_404(Track, title = title);

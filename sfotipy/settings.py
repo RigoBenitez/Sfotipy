@@ -137,3 +137,11 @@ MEDIA_URL = '/media/'
 
 #backends
 AUTHENTICATION_BACKENDS = ('userProfiles.backends.EmailBackend',);
+
+#para no darle TAN duro a la db
+#crea el elemento en la db (lento), pero cada que el usuario visite mas paginas saca todo de la cache 
+#SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+
+#aun mas -- si no les importa que se pierda la sesion
+#no usa una base de datos para guardar el cache
+SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
