@@ -7,7 +7,7 @@ class AlbumAdmin(admin.ModelAdmin):
 
 	#obj es el elemneto de la lista que vamos a iterar
 	def imageAlbum(self, obj):
-		return ' <img src="%s" alt="" /> ' % get_thumbnail(obj.cover, '20x200', crop='center').url;
+		return ' <img src="%s" alt="" /> ' % get_thumbnail(obj.cover, '200x200', crop='center', format='PNG').url;
 
 	imageAlbum.allow_tags = True;
 
