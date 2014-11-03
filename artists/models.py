@@ -24,9 +24,9 @@ from django.dispatch import receiver
 
 # se puede agregar a caulquier modelo
 #se deve ejecutar siemre despues de que se grave un modelo
-@receiver(post_save)
-def clear_cache(sender, **kwargs):
-	# si el modelo que lo envia(artist, album, etc) se actualiza y no es una sesion
-	# borre el cache, cada que grabamos un modelo 
-	if sender != Session:
-		cache._cache.flush_all();
+# @receiver(post_save)
+# def clear_cache(sender, **kwargs):
+# 	# si el modelo que lo envia(artist, album, etc) se actualiza y no es una sesion
+# 	# borre el cache, cada que grabamos un modelo 
+# 	if sender != Session:
+# 		cache._cache.flush_all();

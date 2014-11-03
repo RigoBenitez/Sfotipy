@@ -54,6 +54,8 @@ INSTALLED_APPS = (
     'mockups',
     'django_extensions',
     'rest_framework',
+    'redis_cache',
+    'sorl.thumbnail',
     'userProfiles',
     'artists',
     'albums',
@@ -94,17 +96,17 @@ DATABASES = {
     }
 }
 
-CACHES = {
-    'default': {
-        'BACKEND': 'redis_cache.RedisCache',
-        'LOCATION': 'localhost: 6379',
-        'OPTIONS': {
-            'DB': 1,
-            #opcional pero lo hace mas rapido en produccion
-            'PARSER_CLASS': 'redis.connection.HiredisParser',
-        }
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'redis_cache.RedisCache',
+#         'LOCATION': 'localhost: 6379',
+#         'OPTIONS': {
+#             'DB': 1,
+#             #opcional pero lo hace mas rapido en produccion
+#             'PARSER_CLASS': 'redis.connection.HiredisParser',
+#         }
     
-}}
+# }}
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
