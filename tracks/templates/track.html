@@ -1,3 +1,4 @@
+{% load cache %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +15,15 @@
 			</li>
 			{% endfor %}
 		</ul>
-		<p>
+
+		{# asi se guarda en la tabla #}
+		{% cache 30 track.title %}
+		<p style="color: red;">
 			{{titulo}}
 		</p>
+		{% endcache %}
 		<p>
+
 			Title: {{track.title}}
 		</p>
 		<p>
