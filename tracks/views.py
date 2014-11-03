@@ -27,6 +27,8 @@ def trackView(request, title):
 	except Track.DoesNotExist:
 		raise Http404
 	'''
+
+	# data es lo que sale del cache
 	data  = cache.get('data_%s' % title);
 
 	if data is None:
@@ -40,7 +42,8 @@ def trackView(request, title):
 			}
 		}
 		time.sleep(5)
-		
+
+		# se serializa el diccionario de data
 		cache.set('data_%s' % title, data);
 
 	#con loads haces lo contrario
